@@ -87,3 +87,27 @@ function reduce(array, callback, initialValue) {
 
 console.log(reduce([1, 2, 3], add, 10));
 ```
+
+## Challenge 7
+>Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs. BONUS: Use reduce!
+
+```
+function intersectionReducer(acc, currentValue) {
+  const newArray = [];
+  for(let elem of currentValue) {
+    if (acc.includes(elem)) {
+      newArray.push(elem)
+    }
+  }
+  return newArray;
+  
+}
+
+//console.log(intersectionReducer)
+
+function intersection(arrays) {
+  return reduce(arrays, intersectionReducer, arrays[0]);
+}
+
+console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
+```
